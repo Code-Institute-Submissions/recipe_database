@@ -4,18 +4,15 @@ from flask_pymongo import PyMongo
 
 app = Flask(__name__)
 app.config["MONGO_DBNAME"] = 'recipe_database'
-app.config["MONGO_URI"] = 'mongodb://<dbuser>:<dbpassword>@ds151282.mlab.com:51282/recipe_database'
+app.config["MONGO_URI"] = 'mongodb://admin:Tottenham18@ds151282.mlab.com:51282/recipe_database'
 
 mongo = PyMongo(app)
 
-app.route('/')
-def hello():
-    return 'hello'
-    
-#app.route('/get_cusine')
-#def get_cusines():
-    #return render_template("index.html", 
-    #cusine=mongo.db.cusine.find())
+@app.route('/')
+@app.route('/get_recipes')
+def get_cusines():
+    return render_template("index.html", 
+    recipes=mongo.db.recipes.find())
     
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),

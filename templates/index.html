@@ -1,12 +1,25 @@
-<html>
-<head>
- 
-</head>
+{% extends 'base.html' %}
 
-    <body>
-        {% for index in cusine %}
-        {{index.cusine_name}}
+    {% block content %}
+       
+        
+    <ul class="collapsible" data-collapsible="accordion">
+        {% for index in recipes %}
+        <li>
+              <div class="collapsible-header"><i class="material-icons">expand_more</i><strong>{{index.recipe_name}}</strong>  - {{index.cusine_name}} - {{index.time_details}} - {{index.difficulty_selector}} - {{index.serves_details}}
+              </div>
+              <div class="collapsible-body">
+                  <span> 
+                  {{index.ingredients_details}}
+                  </span>
+              </div>
+              <div class="collapsible-body">
+                  <span> 
+                  {{index.instructions_details}}
+                  </span>
+              </div>
+        </li>
         {% endfor %}
-    </body>
-    
-</html>
+    </ul>
+  
+    {% endblock %}
