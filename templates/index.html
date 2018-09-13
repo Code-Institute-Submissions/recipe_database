@@ -9,7 +9,7 @@
               <div class="collapsible-header">
                   <div class="col s12">
                       <i class="material-icons">expand_more</i><strong>{{index.recipe_name}}</strong>  - {{index.cusine_name}} - {{index.time_details}} - {{index.difficulty_selector}} - {{index.serves_details}}
-                      <a class="waves-effect waves-light btn btn_small green">Edit</a>    
+                      <a href="{{url_for('edit_recipe', recipe_id=index._id)}}" class="waves-effect waves-light btn btn_small green">Edit</a>    
                       <a class="waves-effect waves-light btn btn_small red">Delete</a>    
                   </div>
               </div>
