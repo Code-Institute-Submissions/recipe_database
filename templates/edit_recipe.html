@@ -7,17 +7,17 @@
           <div class="row">
             <div class="input-field col s4">
               <i class="material-icons prefix">restaurant</i>
-              <input id="recipe_name" name="recipe_name" type="text" class="validate">
+              <input id="recipe_name" name="recipe_name" type="text" class="validate" value="{{index.recipe_name}}">
               <label for="icon_prefix">Enter Recipe Name</label>
             </div>
             <div class="input-field col s4">
               <i class="material-icons prefix">av_timer</i>
-              <input id="time_details" name="time_details" type="number" class="validate">
+              <input id="time_details" name="time_details" type="number" class="validate" value="{{index.time_details}}">
               <label for="icon_telephone">Enter Time It Takes To Create Dish(Mins)</label>
             </div>
             <div class="input-field col s4">
               <i class="material-icons prefix">people</i>
-              <input id="serves_details" name="serves_details" type="number" class="validate">
+              <input id="serves_details" name="serves_details" type="number" class="validate" value="{{index.serves_details}}">
               <label for="icon_telephone">Enter The Number Of People It Serves </label>
             </div>
             <div class="input-field col s6">
@@ -25,7 +25,11 @@
                 <select id="cusine_name"> name="cusine_name"
                   <option value="" disabled selected>Choose Your Cusine</option>
                   {% for cus in cusine%}
-                  <option value="{{cus.cusine_name}}">{{cus.cusine_name}}</option>
+                          {% if cus.cusine_name == index.cusine_name %}
+                          <option value="{{cus.cusine_name}}" selected> {{cus.cusine_name}}</option>
+                          {% else %}
+                          <option value="{{cus.cusine_name}}">{{cus.cusine_name}}</option>
+                          {% endif %}
                   {% endfor %}
                 </select>
                 <label>Cusine Select</label>
@@ -35,19 +39,23 @@
                 <select id="difficulty_selector" name="difficulty_selector">
                   <option value="" disabled selected>Choose Your Difficulty</option>
                   {% for diff in difficulty %}
-                  <option value="{{diff.difficulty_selector}}">{{diff.difficulty_selector}}</option>
+                          {% if diff.difficulty_selector == index.difficulty_selector %}
+                          <option value="{{diff.difficulty_selector}}" selected>{{diff.difficulty_selector}}</option>
+                          {% else %}
+                          <option value="{{diff.difficulty_selector}}">{{diff.difficulty_selector}}</option>
+                          {% endif %}
                   {% endfor %}
                 </select>
                 <label>Difficulty Select</label>
             </div>
             <div class="input-field col s12">
               <i class="material-icons prefix">shopping_basket</i>
-              <textarea name="ingredients_details" id="ingredients_details" class="materialize-textarea"></textarea>
+              <textarea name="ingredients_details" id="ingredients_details" class="materialize-textarea">{{ingredients_details}}</textarea>
               <label for="icon_telephone">Enter Ingredients List </label>
             </div>
             <div class="input-field col s12">
               <i class="material-icons prefix">format_list_numbered</i>
-              <textarea name="instructions_details" id="instructions_details" class="materialize-textarea"></textarea>
+              <textarea name="instructions_details" id="instructions_details" class="materialize-textarea">{{index.instructions_details}}</textarea>
               <label for="icon_telephone">Enter The Step By Step Gudie To Creating This Dish </label>
             </div>
             
