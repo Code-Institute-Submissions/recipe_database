@@ -22,11 +22,11 @@
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">flag</i>
-                <select id="cusine_name"> name="cusine_name"
+                <select id="cusine_name" name="cusine_name">
                   <option value="" disabled selected>Choose Your Cusine</option>
-                  {% for cus in cusine%}
+                  {% for cus in cusine %}
                           {% if cus.cusine_name == index.cusine_name %}
-                          <option value="{{cus.cusine_name}}" selected> {{cus.cusine_name}}</option>
+                          <option value="{{cus.cusine_name}}" selected>{{cus.cusine_name}}</option>
                           {% else %}
                           <option value="{{cus.cusine_name}}">{{cus.cusine_name}}</option>
                           {% endif %}
@@ -50,7 +50,7 @@
             </div>
             <div class="input-field col s12">
               <i class="material-icons prefix">shopping_basket</i>
-              <textarea name="ingredients_details" id="ingredients_details" class="materialize-textarea">{{ingredients_details}}</textarea>
+              <textarea name="ingredients_details" id="ingredients_details" class="materialize-textarea">{{index.ingredients_details}}</textarea>
               <label for="icon_telephone">Enter Ingredients List </label>
             </div>
             <div class="input-field col s12">
@@ -59,7 +59,7 @@
               <label for="icon_telephone">Enter The Step By Step Gudie To Creating This Dish </label>
             </div>
             
-            <button class="btn waves-effect waves-light" type="submit" name="action">Submit Recipe
+            <button class="btn waves-effect waves-light" type="submit" name="action">Update Recipe
                 <i class="material-icons right">send</i>
             </button>
           </div>

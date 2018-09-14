@@ -54,6 +54,17 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.remove({'_id':ObjectId(recipe_id)})
     return redirect(url_for('get_recipes'))
     
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')
+    
+@app.route('/insert_signup', methods=['POST'])
+def insert_signup():
+    usernames = mongo.db.usernames
+    usernames.insert_one(request.form.to_dict())
+    return redirect(url_for('signup'))
+
+    
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
         port=int(os.environ.get('PORT')),
