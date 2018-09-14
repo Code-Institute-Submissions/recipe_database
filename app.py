@@ -63,6 +63,16 @@ def insert_signup():
     usernames = mongo.db.usernames
     usernames.insert_one(request.form.to_dict())
     return redirect(url_for('signup'))
+    
+@app.route('/signin')
+def signin():
+    return render_template('signin.html')
+    
+@app.route('/insert_signin/<usernames_id>, methods=["GET"]')
+def insert_signin(usernames_id):
+    the_username = mongo.db.usernames.find_one({"_id" : ObjectId(usernames_id)})
+    return render_template('signin.html', index=the_username)
+    
 
     
 if __name__ == '__main__':
