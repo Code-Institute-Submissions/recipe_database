@@ -19,7 +19,14 @@ def index():
 
 @app.route('/loggedin')
 def loggedin():
+   
+   
+    
     return render_template('loggedin.html')
+    
+@app.route('/logout')
+def logout():
+    return redirect(url_for('index'))
     
 @app.route('/get_recipes')
 def get_recipes():

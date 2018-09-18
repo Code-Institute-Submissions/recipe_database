@@ -1,7 +1,26 @@
 {% extends 'base.html' %}
 {% block content %}
-    
+<h3>Filters</h3>
+<div class="filterbar">
+        <nav>
+            <div>
+                <a href="#" data-activates="mobile-demo1" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a href="">Cusine</a></li>
+                    <li><a href="">Difficulty </a></li>
+                    <li><a href="">Serves</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo1">
+                    <li><a href="">Cusine</a></li>
+                    <li><a href="">Difficulty</a></li>
+                    <li><a href="">Serves</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <h2>Welcome To The Recipe Database</h2>
     <div class="container">
+        
         <ul class="collapsible" data-collapsible="accordion">
         {% for index in recipes %}
         <li>
