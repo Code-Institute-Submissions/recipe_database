@@ -9,10 +9,21 @@ app.config["MONGO_URI"] = 'mongodb://admin:Tottenham18@ds151282.mlab.com:51282/r
 
 mongo = PyMongo(app)
 
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
+def index():
+    if request .method == "POST":
+        with open("data/users.txt", "a") as user_list:
+            user_list.write(request.form["username"] + "/n")
+        return redirect(url_for('loggedin'))
+    return render_template("index.html")
+
+@app.route('/loggedin')
+def loggedin():
+    return render_template('loggedin.html')
+    
 @app.route('/get_recipes')
 def get_recipes():
-    return render_template("index.html", 
+    return render_template("loggedin.html", 
     recipes=mongo.db.recipes.find())
     
 @app.route('/add_recipe')
@@ -54,24 +65,7 @@ def delete_recipe(recipe_id):
     mongo.db.recipes.remove({'_id':ObjectId(recipe_id)})
     return redirect(url_for('get_recipes'))
     
-@app.route('/signup')
-def signup():
-    return render_template('signup.html')
-    
-@app.route('/insert_signup', methods=['POST'])
-def insert_signup():
-    usernames = mongo.db.usernames
-    usernames.insert_one(request.form.to_dict())
-    return redirect(url_for('signup'))
-    
-@app.route('/signin')
-def signin():
-    return render_template('signin.html')
-    
-@app.route('/insert_signin/<usernames_id>, methods=["GET"]')
-def insert_signin(usernames_id):
-    the_username = mongo.db.usernames.find_one({"_id" : ObjectId(usernames_id)})
-    return render_template('signin.html', index=the_username)
+
     
 
     
