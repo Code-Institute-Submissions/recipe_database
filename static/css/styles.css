@@ -4,5 +4,16 @@
     line-height: 24px;
     margin: 5px 5px;
     padding: 0 0.5em;
-    font-size: 15px;
+    font-size: 10px;
+}
+
+.filterbar{
+    padding-top: 20px;
+}
+
+@media (max-width: 767px) {
+    #headering{
+        font-size: 30px;
+    }
+    
 }

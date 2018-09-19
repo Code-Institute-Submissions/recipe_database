@@ -1,26 +1,27 @@
 {% extends 'base.html' %}
 {% block content %}
-    <h1>Add Your Recipe To The Existing Recipe Wiki</h1>
-    
+    <h1 id="headering">Add Your Recipe To The Existing Recipe Wiki</h1>
+    <!--the form which allows the user to add recipes each field is hooked up and links for the name set in the database
+    for all data is sent correctly-->
     <div class="row">
         <form action="{{ url_for('insert_recipe') }}" method="POST" class="col s12">
           <div class="row">
-            <div class="input-field col s4">
+            <div class="input-field col s12">
               <i class="material-icons prefix">restaurant</i>
               <input id="recipe_name" name="recipe_name" type="text" class="validate">
               <label for="icon_prefix">Enter Recipe Name</label>
             </div>
-            <div class="input-field col s4">
+            <div class="input-field col s12">
               <i class="material-icons prefix">av_timer</i>
               <input id="time_details" name="time_details" type="number" class="validate">
               <label for="icon_telephone">Enter Time It Takes To Create Dish(Mins)</label>
             </div>
-            <div class="input-field col s4">
+            <div class="input-field col s12">
               <i class="material-icons prefix">people</i>
               <input id="serves_details" name="serves_details" type="number" class="validate">
               <label for="icon_telephone">Enter The Number Of People It Serves </label>
             </div>
-           <div class="input-field col s6">
+           <div class="input-field col s12">
                 <i class="material-icons prefix">flag</i>
                 <select id="cusine_name" name="cusine_name">
                   <option value="" disabled selected>Choose Your Cusine</option>
@@ -30,7 +31,7 @@
                 </select>
                 <label>Cusine Select</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col s12">
                 <i class="material-icons prefix">category</i>
                 <select id="difficulty_selector" name="difficulty_selector">
                   <option value="" disabled selected>Choose Your Difficulty</option>
