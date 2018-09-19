@@ -2,22 +2,18 @@
 {% block content %}
 <h3>Filters</h3>
 <div class="filterbar">
-        <nav>
-            <div>
-                <a href="#" data-activates="mobile-demo1" class="button-collapse"><i class="material-icons">menu</i></a>
-                <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li><a href="">Cusine</a></li>
-                    <li><a href="">Difficulty </a></li>
-                    <li><a href="">Serves</a></li>
-                </ul>
-                <ul class="side-nav" id="mobile-demo1">
-                    <li><a href="">Cusine</a></li>
-                    <li><a href="">Difficulty</a></li>
-                    <li><a href="">Serves</a></li>
-                </ul>
+   <form action="{{ url_for('filter') }}" method="POST" class="col s12">
+          <div class="row">
+            <div class="input-field col s4">
+              <i class="material-icons prefix">restaurant</i>
+              <input id="cusine_name" name="cusine_name" type="text" class="validate">
+              <label for="icon_prefix">Enter Cusine Name</label>
             </div>
-        </nav>
-    </div>
+        <button class="btn waves-effect waves-light red" type="submit" name="action">Add Filter
+                <i class="material-icons right">send</i>
+        </button>
+   </form>
+</div>
     <h2>Welcome To The Recipe Database</h2>
     <div class="container">
         
@@ -44,6 +40,13 @@
         </li>
         {% endfor %}
     </ul>
+    </div>
+    <div class="row">
+        {% if any_cuisines %}
+        <a href="{{ url_for('add_task') }}" class="waves-effect waves-light btn">
+            <i class="material-icons right">playlist_add</i>Add Task
+        </a>
+        {% endif %}
     </div>
     
 {% endblock%}

@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
     <h1>Edit This Recipe</h1>
-    
+    <!--used a seperate page to edit recipes because in the form i added extra code which fetches
+    the existing data for the fields for that selected recipe to edit-->
     <div class="row">
         <form action="{{ url_for('insert_recipe') }}" method="POST" class="col s12">
           <div class="row">
