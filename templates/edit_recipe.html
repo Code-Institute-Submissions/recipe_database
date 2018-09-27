@@ -24,7 +24,7 @@
             <div class="input-field col s12">
                 <i class="material-icons prefix">flag</i>
                 <select id="cusine_name" name="cusine_name">
-                  <option value="" disabled selected>Choose Your Cusine</option>
+                  <option value="" disabled selected>Choose Your Cuisine</option>
                   {% for cus in cusine %}
                           {% if cus.cusine_name == index.cusine_name %}
                           <option value="{{cus.cusine_name}}" selected>{{cus.cusine_name}}</option>
@@ -33,7 +33,7 @@
                           {% endif %}
                   {% endfor %}
                 </select>
-                <label>Cusine Select</label>
+                <label>Cuisine Select</label>
             </div>
             <div class="input-field col s12">
                 <i class="material-icons prefix">category</i>
