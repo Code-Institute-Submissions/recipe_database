@@ -66,7 +66,7 @@ def add_recipe():
     
  
 
-@app.route('/insert_recipe', methods=['POST', 'GET'])
+@app.route('/insert_recipe', methods=['POST'])
 def insert_recipe():
     """
     this function send the data entered by the user to the database on mlab
