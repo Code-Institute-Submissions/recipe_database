@@ -48,6 +48,8 @@ Technologies Used:
         
     5. Heroku
         To deploy final version for viewing
+        Project link:
+        https://recipe-database.herokuapp.com/
         
     6. Git Hub
         For version control
